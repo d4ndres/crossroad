@@ -16,7 +16,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow-x: hidden;
+	/*overflow-y: hidden;*/
 	
 	transition: 1s;
 }
@@ -37,10 +37,13 @@ figure{
 h1,h2,h3,h4,h5,h6{
 	margin: 0;
 }
+ul{
+	padding-left: 0;
+}
 /*_____________________________header___________________________*/
 .header{
 	background: #010101;
-	width: 100vw;
+	width: 100%;
 	min-height: 100vh;
 
 	display: flex;
@@ -103,6 +106,7 @@ h1,h2,h3,h4,h5,h6{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 .programs-container .description{
 	flex: 1;
@@ -120,7 +124,7 @@ h1,h2,h3,h4,h5,h6{
 
 .programs{
 	font-family: 'Lora', serif;
-	min-width: 100vw;
+	min-width: 97vw;
 	min-height: 65vh;
 	background: #3F3F3F;
 
@@ -170,14 +174,14 @@ h1,h2,h3,h4,h5,h6{
 }
 /*hovers*/
 .program:hover{
-	width: 150%;
+	width: 100%;
 }
 .program:hover .program-title{
 	padding: 5%;
 	font-size: 2em;
 }
 .program:hover p{
-	font-size: 20px;
+	font-size: 1.1em;
 	visibility: initial;
 	opacity: 1;
 }
@@ -188,7 +192,7 @@ h1,h2,h3,h4,h5,h6{
 /*_____________________________footer___________________________*/
 .footer{
 	min-height: 50vh;
-	min-width: 100vw;
+	min-width: 100%;
 	background: #010101;
 	font-family: 'Lora', serif;
 }
@@ -200,10 +204,38 @@ h1,h2,h3,h4,h5,h6{
 	width: 100%;
 }
 .contacts{
-	width: 100vw;
+	width: 100%;
 	text-align: center;
 	margin-top: 10vh; 
 }
 .contacts span{
 	color: #fff;
+}
+/*_____________________________medias___________________________*/
+
+@media screen and ( max-width: 768px ){
+	.programs{
+		flex-direction: column;
+		min-width: 80vw;
+	}
+	.program{
+		min-width: 100%;
+	}
+
+}
+@media screen and ( max-width: 500px ){
+	body{
+		font-size: 14px;
+	}
+	.programs{
+		flex-direction: column;
+	}
+	.program:hover .program-title{
+	padding: 5%;
+	font-size: 1.7em;
+	}
+	.program{
+		min-width: 100%;
+	}
+
 }
