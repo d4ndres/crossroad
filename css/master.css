@@ -16,7 +16,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/*overflow-y: hidden;*/
+	/* overflow: hidden; */
 	
 	transition: 1s;
 }
@@ -40,6 +40,44 @@ h1,h2,h3,h4,h5,h6{
 ul{
 	padding-left: 0;
 }
+/* __________________flotantes___________________________ */
+.arrows{
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 1;
+	cursor: pointer;
+	display: none;
+	visibility: hidden;
+}
+.arrow{
+	display: block;
+	width: 50px;
+	height: 50px;
+	background: rgba(255,255,255,0.6);
+	transition: .4s ;
+}
+.arrow:last-child{
+	border-top: solid .5px;
+}
+.arrow::before{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	content: "^";
+	color: #000;
+	font-size: 1.5em;
+
+}
+.arrow:last-child::before{
+	transform: rotate(180deg);
+}
+.arrow:active {
+	background: rgba(9, 45, 81,0.6);
+
+}
+
 /*_____________________________header___________________________*/
 .header{
 	background: #010101;
@@ -65,7 +103,10 @@ ul{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	
+}
+.crossroad-about *{
+	text-align: center;
 }
 .mision{
 	color: gray;
@@ -102,11 +143,15 @@ ul{
 /*_____________________________main-content___________________________*/
 .programs-container{
 	min-height: 100vh;
-
+	min-width: 99%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	border-bottom: dashed .5px;
+
+
 }
 .programs-container .description{
 	flex: 1;
@@ -124,8 +169,8 @@ ul{
 
 .programs{
 	font-family: 'Lora', serif;
-	min-width: 97vw;
-	min-height: 65vh;
+	min-width: 100%;
+	min-height: 50vh;
 	background: #3F3F3F;
 
 	display: flex;
@@ -135,7 +180,7 @@ ul{
 .program{
 	width: 33%;
 	min-width: 0;
-	min-height: 65vh;
+	min-height: 55vh;
 	background: #323232;
 	transition: .7s;
 	color: #fff;
@@ -186,12 +231,60 @@ ul{
 	opacity: 1;
 }
 /*_____________________________mod3___________________________*/
-.why-learn{
+.mod3{
 	min-height: 100vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center ;
+	flex-direction: column;
 }
+.mod3 h2{
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 3em;
+}
+.card{
+	border-radius: 20px;
+    width: 30vw;
+    height: 70vh;
+    border: solid #000 1px;
+    overflow: hidden;
+    background: #fff;
+	min-width: 350px;
+	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .4);
+}
+.row-header {
+	
+	background: gray;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+.andy-img{
+	padding: 15px 0 0 0;
+	overflow: hidden;
+	max-width: 180px;
+}
+.andy-img img{
+    border: solid #000 .4px;
+	border-radius: 20px 20px 20px 20px;
+	object-fit: cover;
+	width: 100%;
+}
+.row-body{
+	transform: translate(calc(10%));
+	max-width: 80%;
+}
+.row-body h3{
+	text-align: center;
+	font-size: 1.5em;
+	margin: 1.2em 0 .8em 0;
+}
+
+
 /*_____________________________footer___________________________*/
 .footer{
-	min-height: 50vh;
+	min-height: 40vh;
 	min-width: 100%;
 	background: #010101;
 	font-family: 'Lora', serif;
@@ -199,6 +292,7 @@ ul{
 .crossroad-img-footer{
 	max-width: 400px;
 	margin: 0 auto;
+	padding-top: 2vh;
 }
 .crossroad-img-footer img{
 	width: 100%;
@@ -206,7 +300,7 @@ ul{
 .contacts{
 	width: 100%;
 	text-align: center;
-	margin-top: 10vh; 
+	margin-top: 5vh; 
 }
 .contacts span{
 	color: #fff;
@@ -227,6 +321,13 @@ ul{
 	body{
 		font-size: 14px;
 	}
+	.crossroad-about{
+		min-height: 70vh;
+		font-size: 1.4em;
+	}
+	.btn-know-more{
+		width: 250px;
+	}
 	.programs{
 		flex-direction: column;
 	}
@@ -237,5 +338,25 @@ ul{
 	.program{
 		min-width: 100%;
 	}
+	.programs-container {
+		font-size: 12px;
+	}
+	.program{
+		min-height: 120%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.program-title{
+		padding-top: 0;
+		padding: 20% 0;
+	}
 
+	.footer{
+		font-size: 16px;
+	}
+	.item{
+		padding: .2em 0;
+	}
 }
