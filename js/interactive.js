@@ -16,8 +16,29 @@ const $programs = document.getElementById('mod2')
 const $mod3 = document.getElementById('mod3')
 const $footer = document.getElementById('mod4')
 
+const $backgroundCrossroad = document.getElementById('background-img-crossroad')
+
 const knowHeightMod = (elem) => elem.offsetHeight
 const DOCUMENTHEIGHT = 	[ knowHeightMod($header), knowHeightMod($programs), knowHeightMod($mod3), knowHeightMod($footer)] 
+
+// https://www.instagram.com/p/------/?taken-by=crossroadcolombia
+
+// const IMAGES = [
+// 	"BlwmsllAIiX",
+// 	"BlwDA_GA6og",
+// 	"BlmIKWRghb8",
+// 	"Blie989gbvB",
+// 	"Bk9t_cbgB0_",
+// 	"BklpsHsApT",
+// 	"BjfSXWQgCnu",
+// 	"Bi9-NSjg4ns",
+// 	"BiLFVZKAI1Y",
+// 	"BhurY-ugTn_",
+// 	"Bg2Mc7KDp4V",
+// 	"Bfwsm9WjcYt",
+// 	"BfREXVYjcAX",
+// 	"BeLUcZBD9AV",
+// ]
 
 
 //__________________________scrollbtns__________________

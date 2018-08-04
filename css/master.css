@@ -1,9 +1,61 @@
 /*_____________________________out___________________________*/
+/* iconst */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?hfob9n');
+  src:  url('../fonts/icomoon.eot?hfob9n#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?hfob9n') format('truetype'),
+    url('../fonts/icomoon.woff?hfob9n') format('woff'),
+    url('../fonts/icomoon.svg?hfob9n#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\ea91";
+}
+
+.icon-facebook:hover:before {
+  color: #3b5998;
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-instagram:hover:before {
+  color: #d10869;
+}
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+.icon-whatsapp:hover:before {
+  color: rgb(0, 230, 118);
+}
+
+/* fonts */
 @import url('https://fonts.googleapis.com/css?family=Lora|Roboto');
 /*font-family: 'Roboto', sans-serif;
 font-family: 'Lora', serif;*/
 /*_____________________________global___________________________*/
+:root{
+	--main-red: #EC3138; 
+}
+
+
 body{
 	margin: 0;
 	font-family: 'Roboto', arial;
@@ -23,9 +75,9 @@ body{
 a{
 	text-decoration: none;
 	color: #E6323A;
-}
+} 
 a:hover{
-	color: #fff;
+	color: var(--main-red);
 }
 
 img{
@@ -39,6 +91,24 @@ h1,h2,h3,h4,h5,h6{
 }
 ul{
 	padding-left: 0;
+}
+.template-btn, .program a{
+	max-width: 400px;
+	padding: 10px 20px;
+	font-size: 1.1em;
+	margin: auto auto;
+	cursor: pointer;
+	outline: none;
+	transition: .4s;
+	border-radius: 100px;
+	background: transparent;
+	color: #fff;
+	display: inline-block;
+
+}
+
+.explore a{
+	color: #fff;
 }
 /* __________________flotantes___________________________ */
 .arrows{
@@ -78,6 +148,8 @@ ul{
 
 }
 
+
+
 /*_____________________________header___________________________*/
 .header{
 	background: #010101;
@@ -113,29 +185,15 @@ ul{
 }
 
 .btn-know-more{
-	max-width: 400px;
-	padding: 10px 20px;
-	font-size: 1.1em;
-	margin: auto auto;
-	color: #fff;
-	cursor: pointer;
-
-	background: transparent;
 	border: 2px solid #fff;
 	border-radius: 3px;
 	transition: .4s;
-}
-.btn-know-more a{
-	color: #fff;
-}
-.btn-know-more:hover a{
-	color: #000;
 }
 .btn-know-more:hover{
 	background: #fff;
 	color: #000;
 }
-.btn-know-more:active, .btn-know-more:active a{
+.btn-know-more:active{
 	color: #000;
 	border-color: #000;
 	outline: none;
@@ -186,7 +244,11 @@ ul{
 	color: #fff;
 
 	position: relative;
-
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 .group-program{
 	background: #fff;
@@ -196,7 +258,7 @@ ul{
 	background: #000;
 }
 .personal-program{
-	background: #EC3138;
+	background: var(--main-red);
 	
 }
 .program-title{
@@ -215,8 +277,40 @@ ul{
 	opacity: 0;
 	visibility: hidden;
 	transition: .6s;
-
+	
+	align-self: flex-start;
 }
+/* btns */
+.program a{
+	opacity: 0;
+	visibility: hidden;
+}
+.program:hover a{
+	animation: 1s progresive-opacity ease-out forwards;
+	animation-delay: 1s;
+	visibility: visible;
+}
+.program:nth-of-type(odd) .explore{
+	border: 2px solid #000;
+	color: #000;
+}
+.program:nth-of-type(odd) .explore a{
+	color: #000;
+}
+.mix-explore{
+	background: transparent;
+	border: 2px solid #fff;
+}
+.group-explore:hover{
+	background: rgba(0, 0, 0, .2)
+}
+.mix-explore:hover, .personal-explore:hover{
+	background: rgba(255, 255, 255, .2)
+}
+.explore:active{
+	transform: scale(.97)
+}
+
 /*hovers*/
 .program:hover{
 	width: 100%;
@@ -250,7 +344,7 @@ ul{
     border: solid #000 1px;
     overflow: hidden;
     background: #fff;
-	min-width: 350px;
+	min-width: 300px;
 	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .4);
 }
 .row-header {
@@ -305,6 +399,17 @@ ul{
 .contacts span{
 	color: #fff;
 }
+.row-footer{
+	min-width: 350px;
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+
+}
+.row-footer .item a{
+	margin: 0 2vw;
+	font-size: 1.5em;
+}
 /*_____________________________medias___________________________*/
 
 @media screen and ( max-width: 768px ){
@@ -332,8 +437,8 @@ ul{
 		flex-direction: column;
 	}
 	.program:hover .program-title{
-	padding: 5%;
-	font-size: 1.7em;
+		padding: 5%;
+		font-size: 1.7em;
 	}
 	.program{
 		min-width: 100%;
@@ -358,5 +463,23 @@ ul{
 	}
 	.item{
 		padding: .2em 0;
+	}
+}
+/* ______________keyframs___________ */
+@keyframes progresive-opacity{
+	0%{
+		opacity: 0;
+	}
+	40%{
+		opacity: .6;
+	}
+	60%{
+		opacity: 0;
+	}
+	80%{
+		opacity: .6;
+	}
+	100%{
+		opacity: 1;
 	}
 }
