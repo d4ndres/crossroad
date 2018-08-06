@@ -31,7 +31,7 @@
 }
 
 .icon-facebook:hover:before {
-  color: #3b5998;
+  color: #3B5998;
 }
 .icon-instagram:before {
   content: "\ea92";
@@ -68,9 +68,11 @@ body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* overflow: hidden; */
 	
 	transition: 1s;
+}
+body::-webkit-scrollbar{
+  display: none;
 }
 a{
 	text-decoration: none;
@@ -111,44 +113,37 @@ ul{
 	color: #fff;
 }
 /* __________________flotantes___________________________ */
-.arrows{
+.students-navigation{
 	position: fixed;
-	top: 10px;
-	right: 10px;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: var(--main-red);
+	border-radius: 0 0 10px 10px;
 	z-index: 1;
+	color: #fff;
+	transform: translate(0, -88%);
 	cursor: pointer;
-	display: none;
-	visibility: hidden;
-}
-.arrow{
-	display: block;
-	width: 50px;
-	height: 50px;
-	background: rgba(255,255,255,0.6);
-	transition: .4s ;
-}
-.arrow:last-child{
-	border-top: solid .5px;
-}
-.arrow::before{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100%;
-	content: "^";
-	color: #000;
-	font-size: 1.5em;
+	transition: .5s;
 
 }
-.arrow:last-child::before{
-	transform: rotate(180deg);
+.students-option{
+	padding: 10px 0;
+	min-width: 180px;
+	border-top: solid 1px #000; 
 }
-.arrow:active {
-	background: rgba(9, 45, 81,0.6);
+.students-option:last-of-type::after{
+	content: '  down';
+	transition: .4s;
 
 }
+.students-navigation:hover{
+	transform: translate(0);
+}
 
-
+.students-navigation:hover .students-option:last-of-type::after{
+	content: '  up';
+}
 
 /*_____________________________header___________________________*/
 .header{
@@ -175,7 +170,6 @@ ul{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
 }
 .crossroad-about *{
 	text-align: center;
@@ -227,8 +221,8 @@ ul{
 
 .programs{
 	font-family: 'Lora', serif;
-	min-width: 100%;
-	min-height: 50vh;
+	min-width: 100vw;
+	min-height: 55vh;
 	background: #3F3F3F;
 
 	display: flex;
@@ -238,7 +232,7 @@ ul{
 .program{
 	width: 33%;
 	min-width: 0;
-	min-height: 55vh;
+	min-height: 100%;
 	background: #323232;
 	transition: .7s;
 	color: #fff;
@@ -378,7 +372,7 @@ ul{
 
 /*_____________________________footer___________________________*/
 .footer{
-	min-height: 40vh;
+	min-height: 30vh;
 	min-width: 100%;
 	background: #010101;
 	font-family: 'Lora', serif;
@@ -413,6 +407,11 @@ ul{
 /*_____________________________medias___________________________*/
 
 @media screen and ( max-width: 768px ){
+	.students-navigation{
+		opacity: 0;
+		visibility: hidden;
+		/* temporal */
+	}
 	.programs{
 		flex-direction: column;
 		min-width: 80vw;
@@ -426,6 +425,7 @@ ul{
 	body{
 		font-size: 14px;
 	}
+	
 	.crossroad-about{
 		min-height: 70vh;
 		font-size: 1.4em;
@@ -439,6 +439,7 @@ ul{
 	.program:hover .program-title{
 		padding: 5%;
 		font-size: 1.7em;
+		min-height: 130%;
 	}
 	.program{
 		min-width: 100%;
@@ -482,4 +483,36 @@ ul{
 	100%{
 		opacity: 1;
 	}
+}
+/*_______________ prince-html__________________ */
+.title-price{
+	color: #fff;
+	font-size: 2em;
+	padding: 10px 0 20px 0;
+	text-align: center;
+}
+
+.prices-tables{
+	flex:  1;
+	background: #F4F4F4;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+table{
+	width: 80%;
+}
+th{
+	background: #010101;
+	color: #fff;
+	padding: 10px;
+}
+td{
+	padding: 20px;
+}
+table, th, td{
+	border:  solid 1px;
+	border-collapse: collapse;
 }
