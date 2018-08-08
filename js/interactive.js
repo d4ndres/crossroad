@@ -1,20 +1,46 @@
 const $body = document.body
+
+
+// OUT NAVIGATION
+
+const $arrow = document.getElementById('arrow')
+const $floatingElement = document.getElementById('floating-element')
+
+
+$arrow.addEventListener('click', () =>{
+  $arrow.classList.toggle('active')
+  $floatingElement.classList.toggle('active')
+  setTimeout(() => {
+    $arrow.classList.remove('active')
+    $floatingElement.classList.remove('active')    
+  },5000)
+})
+// OUT NAVIGATION RESPONSIVE HAMMERJS
+
+var myHammer = new Hammer($body);
+myHammer.on('swipeleft', function() {
+   $floatingElement.classList.remove('active')   
+});
+myHammer.on('swiperight', function() {
+   $floatingElement.classList.add('active')   
+});
+
 // BACKGROUND HEADER
 const WORDSESPANIOL = [
   "de","la","que","el","en","y","a","los","se",
   "del","las","un","por","con","no","una","su","para","es","al","lo","como","más","o","pero","sus","le","ha","me","si","sin","sobre","este","ya","entre","cuando","todo","esta","ser","son","dos","también","fue","había","era","muy","años","hasta","desde","está","mi","porque","qué","sólo","han","yo","hay","vez","puede","todos","así","nos","ni","parte","tiene","él","uno","donde","bien","tiempo","mismo","ese","ahora","cada","e","vida","otro","después","te","otros","aunque","esa","eso","hace","otra","gobierno","tan","durante","siempre","día","tanto","ella","tres","sí","dijo","sido","gran","país","según"
-	]
+  ]
 
 const WORDSENGLISH = [
   "earth","egg","energy","example","experience","eye","game",
   "garden","gas","girl","glass","gold","government","grass","group","hair",
   "hand","hat","head","heart","heat", "history","hole", "home","horse","hour","house","ice","idea","inch","industry","information","insect","interest","iron", "island","job","key","lake","land","language","law","leg","age","air","animal","answer","apple","art","baby","back","ball","bank","bed","bill","bird","blood","boat","body","bone","book","bottom","box"
-	] 
+  ] 
 
 const WORDSGERMAN = [
-	"wie","ich","seine","dass","er","war","für","auf",
-	"sind","mit","sie","sein","bei","ein","haben","dies","aus","durch","heiß","Wort","aber","was","einige","ist","es","Sie","oder","hatte","die","von","zu","und","ein","bei","wir","können","aus","andere","waren","die","tun","ihre","Zeit","wenn","werden","wie","sagte","ein","jeder","sagen","tut","Satz","drei","wollen","Luft","gut","auch","spielen","klein","Ende","setzen","Zuhause","lesen","seits","Hafen","groß","buchstabieren","hinzufügen","auch","Lande","hier","muss","groß","hoch","so","folgen","Akt","warum","fragen","Männer","Veränderung","ging","Licht","Art","aus","müssen","Haus","Bild","versuchen","uns","wieder","Tier","Punkt","Mutter","Welt","bauen","selbst","Erde","Vater"
-	]
+  "wie","ich","seine","dass","er","war","für","auf",
+  "sind","mit","sie","sein","bei","ein","haben","dies","aus","durch","heiß","Wort","aber","was","einige","ist","es","Sie","oder","hatte","die","von","zu","und","ein","bei","wir","können","aus","andere","waren","die","tun","ihre","Zeit","wenn","werden","wie","sagte","ein","jeder","sagen","tut","Satz","drei","wollen","Luft","gut","auch","spielen","klein","Ende","setzen","Zuhause","lesen","seits","Hafen","groß","buchstabieren","hinzufügen","auch","Lande","hier","muss","groß","hoch","so","folgen","Akt","warum","fragen","Männer","Veränderung","ging","Licht","Art","aus","müssen","Haus","Bild","versuchen","uns","wieder","Tier","Punkt","Mutter","Welt","bauen","selbst","Erde","Vater"
+  ]
  
 function wordInWords(words ) {
   let max = words.length - 1
@@ -47,33 +73,9 @@ const $backgroundHeader = document.getElementById('background-header')
 window.addEventListener('scroll', moveBackground)
 
 function moveBackground() {
-	let move = document.documentElement.scrollTop / 3
-	$backgroundHeader.style.transform = `translateY( ${ - move}px)`
+  let move = document.documentElement.scrollTop / 3
+  $backgroundHeader.style.transform = `translateY( ${ - move}px)`
 }
-
-// OUT NAVIGATION
-
-const $arrow = document.getElementById('arrow')
-const $floatingElement = document.getElementById('floating-element')
-
-
-$arrow.addEventListener('click', () =>{
-  $arrow.classList.toggle('active')
-  $floatingElement.classList.toggle('active')
-  setTimeout(() => {
-    $arrow.classList.remove('active')
-    $floatingElement.classList.remove('active')    
-  },5000)
-})
-// OUT NAVIGATION RESPONSIVE HAMMERJS
-
-var myHammer = new Hammer($body);
-myHammer.on('swipeleft', function() {
-   $floatingElement.classList.remove('active')   
-});
-myHammer.on('swiperight', function() {
-   $floatingElement.classList.add('active')   
-});
 
 
 
