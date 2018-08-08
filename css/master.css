@@ -52,8 +52,12 @@
 font-family: 'Lora', serif;*/
 /*_____________________________global___________________________*/
 :root{
-	--main-red: #EC3138; 
+	--main-red: #EC3138;
+	--german-yellow: #FFCF00;
+	--german-red: #DE0000;
 }
+
+
 
 
 body{
@@ -101,97 +105,113 @@ ul{
 	margin: auto auto;
 	cursor: pointer;
 	outline: none;
-	transition: .4s;
+	transition: .6s;
 	border-radius: 100px;
 	background: transparent;
 	color: #fff;
 	display: inline-block;
-
 }
 
 .explore a{
 	color: #fff;
 }
 /* __________________flotantes___________________________ */
-.students-navigation{
-	position: fixed;
-	text-align: center;
-	top: 0;
-	left: 0;
-	background: var(--main-red);
-	border-radius: 0 0 10px 10px;
-	z-index: 1;
-	color: #fff;
-	transform: translate(0, -88%);
-	cursor: pointer;
-	transition: .5s;
 
-}
-.students-option{
-	padding: 10px 0;
-	min-width: 180px;
-	border-top: solid 1px #000; 
-}
-.students-option:last-of-type::after{
-	content: '  down';
-	transition: .4s;
-
-}
-.students-navigation:hover{
-	transform: translate(0);
-}
-
-.students-navigation:hover .students-option:last-of-type::after{
-	content: '  up';
-}
 
 /*_____________________________header___________________________*/
+
 .header{
-	background: #010101;
 	width: 100%;
 	min-height: 100vh;
 
 	display: flex;
 	flex-direction: column;
+	background: linear-gradient(to right, #010101, #282828, #010101);
+	z-index: -2;
 }
 .crossroad-img{
-	max-width: 900px;
-	margin: 0 auto;
+	background: #010101;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
 }
 .crossroad-img img{
+	max-width: 900px;
 	width: 100%;
 }
 .crossroad-about{
-	font-size: 1.5em;
-	min-height: 52vh;
 
-	background: #F4F4F4;
+	position: relative;
+	flex: 1;
+
+	color: #fff;
+	overflow: hidden;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+/* vvvvvv BACKGROUND header */
+.background-header{
+	top: 0;
+	position: absolute;
+	z-index: -1;
+
+}
+.words-container{
+  	position: relative;
+	min-height: 15vh;
+  	width: 300vw;
+  	font-size: 3em;
+  	white-space: nowrap;
+  	color: #000;
+  	animation: moveX 50s infinite linear;
+  	animation-direction: alternate;
+}
+.words-container:nth-of-type(odd){
+  animation-direction: alternate-reverse;
+}
+/* animacion background */
+@keyframes moveX {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-66%);
+  }
+}
+/* ^^^^^^ BACKGROUND header */
+
+/* opinion/ tamanio/ edad/ forma/ color/ origen/ material/ proposito  */
+.content-crossroad-about {
+	font-size: 16px;
 
 	display: flex;
 	flex-direction: column;
+
+	z-index: 2;
+
+	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
 }
-.crossroad-about *{
-	text-align: center;
+.main-title{
+	font-size: 2em;
 }
 .mision{
-	color: gray;
+	font-size: 1.5em;
+	color: #AAAAAA;	
 }
 
-.btn-know-more{
-	border: 2px solid #fff;
-	border-radius: 3px;
-	transition: .4s;
-}
-.btn-know-more:hover{
-	background: #fff;
-	color: #000;
-}
-.btn-know-more:active{
-	color: #000;
-	border-color: #000;
-	outline: none;
-}
+
+
+
 /*_____________________________main-content___________________________*/
 .programs-container{
 	min-height: 100vh;
@@ -248,7 +268,7 @@ ul{
 	background: #fff;
 	color: #000;
 }
-.mix-program{
+.online-program{
 	background: #000;
 }
 .personal-program{
@@ -274,14 +294,14 @@ ul{
 	
 	align-self: flex-start;
 }
-/* btns */
+/* programs */
 .program a{
 	opacity: 0;
 	visibility: hidden;
 }
 .program:hover a{
-	animation: 1s progresive-opacity ease-out forwards;
-	animation-delay: 1s;
+	animation: .7s progresive-opacity ease-out forwards;
+	animation-delay: .7s;
 	visibility: visible;
 }
 .program:nth-of-type(odd) .explore{
@@ -330,6 +350,9 @@ ul{
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 3em;
+}
+.cards{
+	padding-bottom: 2em;
 }
 .card{
 	border-radius: 20px;
@@ -402,16 +425,22 @@ ul{
 }
 .row-footer .item a{
 	margin: 0 2vw;
-	font-size: 1.5em;
+	font-size: 1.8em;
 }
-/*_____________________________medias___________________________*/
+/* _____________________________medias___________________________ */
+
+@media screen and ( max-width: 1100px) {
+	.mod3{
+		font-size: 15px;
+	}
+}
 
 @media screen and ( max-width: 768px ){
-	.students-navigation{
-		opacity: 0;
-		visibility: hidden;
-		/* temporal */
+	
+	.main-title, .mision{
+		text-align: center;
 	}
+
 	.programs{
 		flex-direction: column;
 		min-width: 80vw;
@@ -419,51 +448,49 @@ ul{
 	.program{
 		min-width: 100%;
 	}
+	.group-program{
+		background: #000;
+		color: #fff;
+	}
+	.online-program{
+		background: var(--german-red);
+	}
+	.personal-program{
+		background: var(--german-yellow);
+		color: #000;
+	}
+	.program:nth-of-type(odd) .explore{
+		border: 2px solid #fff;
+		color: #fff;
+	}
+	.program:nth-of-type(odd) .explore a{
+		color: #fff;
+	}
+	
 
 }
 @media screen and ( max-width: 500px ){
-	body{
-		font-size: 14px;
-	}
-	
-	.crossroad-about{
-		min-height: 70vh;
-		font-size: 1.4em;
-	}
-	.btn-know-more{
-		width: 250px;
-	}
-	.programs{
-		flex-direction: column;
-	}
+
+
 	.program:hover .program-title{
 		padding: 5%;
 		font-size: 1.7em;
 		min-height: 130%;
 	}
-	.program{
-		min-width: 100%;
-	}
 	.programs-container {
 		font-size: 12px;
 	}
-	.program{
-		min-height: 120%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
+
 	.program-title{
 		padding-top: 0;
 		padding: 20% 0;
 	}
-
 	.footer{
 		font-size: 16px;
 	}
 	.item{
-		padding: .2em 0;
+		padding: .2em .4em;
+
 	}
 }
 /* ______________keyframs___________ */
@@ -472,10 +499,10 @@ ul{
 		opacity: 0;
 	}
 	40%{
-		opacity: .6;
+		opacity: 0;
 	}
 	60%{
-		opacity: 0;
+		opacity: .6;
 	}
 	80%{
 		opacity: .6;
