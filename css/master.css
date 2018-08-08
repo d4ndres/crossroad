@@ -2,11 +2,11 @@
 /* iconst */
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?hfob9n');
-  src:  url('../fonts/icomoon.eot?hfob9n#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?hfob9n') format('truetype'),
-    url('../fonts/icomoon.woff?hfob9n') format('woff'),
-    url('../fonts/icomoon.svg?hfob9n#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?amx223');
+  src:  url('../fonts/icomoon.eot?amx223#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?amx223') format('truetype'),
+    url('../fonts/icomoon.woff?amx223') format('woff'),
+    url('../fonts/icomoon.svg?amx223#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -45,7 +45,9 @@
 .icon-whatsapp:hover:before {
   color: rgb(0, 230, 118);
 }
-
+.icon-circle-right:before {
+  content: "\ea42";
+}
 /* fonts */
 @import url('https://fonts.googleapis.com/css?family=Lora|Roboto');
 /*font-family: 'Roboto', sans-serif;
@@ -115,7 +117,74 @@ ul{
 .explore a{
 	color: #fff;
 }
+/* opinion/ tamanio/ edad/ forma/ color/ origen/ material/ proposito  */
 /* __________________flotantes___________________________ */
+.floating-element{
+	min-width: 200px;
+	height: 100vh;
+
+	position: fixed;
+	top:  0; left: 0;
+	z-index: 2;
+
+	background: rgba(0, 0, 0, .6);
+	transform: translateX(-99.9%);
+  	transition: .7s;
+}
+
+.floating-element.active{
+	transform: none;
+	
+}
+.arrow{
+	color: var(--main-red);
+	font-size: 2em;
+
+	border-radius: 50%;
+	position: fixed;
+	top: 20px;
+	left: 10px;
+
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+
+	transform: none ;
+  	transition: .7s;
+	z-index: 3;
+
+	cursor: pointer;
+}
+
+.out-item{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-top: 1px solid #fff;
+	padding: 1.3em 0;
+	color: #fff;
+}
+.out-item:first-of-type{
+	margin-top: 4em;
+}
+.out-item:hover{
+	background: var(--main-red);
+	color: #fff;
+}
+.out-item:last-of-type{
+	border-bottom: 1px solid #fff;
+
+}
+
+@media screen and (min-width: 1100px) {
+	.floating-element:hover{
+		transform: none;
+	}
+	.floating-element:hover ~ .arrow,.arrow.active{
+		transform: translateX(150px);
+	}
+}
 
 
 /*_____________________________header___________________________*/
@@ -172,6 +241,12 @@ ul{
   	animation: moveX 50s infinite linear;
   	animation-direction: alternate;
 }
+.words-container{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
 .words-container:nth-of-type(odd){
   animation-direction: alternate-reverse;
 }
@@ -186,14 +261,13 @@ ul{
 }
 /* ^^^^^^ BACKGROUND header */
 
-/* opinion/ tamanio/ edad/ forma/ color/ origen/ material/ proposito  */
 .content-crossroad-about {
 	font-size: 16px;
 
 	display: flex;
 	flex-direction: column;
 
-	z-index: 2;
+	z-index: 1;
 
 	display: flex;
 	justify-content: center;
@@ -357,11 +431,11 @@ ul{
 .card{
 	border-radius: 20px;
     width: 30vw;
-    height: 70vh;
+    height: 500px;
     border: solid #000 1px;
     overflow: hidden;
     background: #fff;
-	min-width: 300px;
+	min-width: 280px;
 	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .4);
 }
 .row-header {
@@ -434,10 +508,13 @@ ul{
 	.mod3{
 		font-size: 15px;
 	}
+	.out-items{
+		font-size: 13px;
+	}
 }
 
 @media screen and ( max-width: 768px ){
-	
+
 	.main-title, .mision{
 		text-align: center;
 	}
@@ -468,6 +545,17 @@ ul{
 		color: #fff;
 	}
 	
+	.arrow{
+		animation: arrow-responsive 2s forwards;
+	}
+	.floating-element{
+		width: 100vw;
+		transform: translateX(-100%);
+		background: #000;
+	}
+	.out-items{
+		font-size: 16px;
+	}
 
 }
 @media screen and ( max-width: 767px ){
@@ -478,9 +566,7 @@ ul{
 	}
 }
 @media screen and ( max-width: 500px ){
-	.mod3{
-		font-size: 14px;
-	}
+	
 
 	.program:hover .program-title{
 		padding: 5%;
@@ -522,6 +608,18 @@ ul{
 	}
 	100%{
 		opacity: 1;
+	}
+}
+@keyframes arrow-responsive{
+	0%, 50%, 90%{
+		opacity: 1;
+	}
+	20%, 60%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 /*_______________ prince-html__________________ */

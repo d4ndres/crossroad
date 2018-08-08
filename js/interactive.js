@@ -1,4 +1,4 @@
-
+const $body = document.body
 // BACKGROUND HEADER
 const WORDSESPANIOL = [
   "de","la","que","el","en","y","a","los","se",
@@ -50,6 +50,30 @@ function moveBackground() {
 	let move = document.documentElement.scrollTop / 3
 	$backgroundHeader.style.transform = `translateY( ${ - move}px)`
 }
+
+// OUT NAVIGATION
+
+const $arrow = document.getElementById('arrow')
+const $floatingElement = document.getElementById('floating-element')
+
+
+$arrow.addEventListener('click', () =>{
+  $arrow.classList.toggle('active')
+  $floatingElement.classList.toggle('active')
+  setTimeout(() => {
+    $arrow.classList.remove('active')
+    $floatingElement.classList.remove('active')    
+  },5000)
+})
+// OUT NAVIGATION RESPONSIVE HAMMERJS
+
+var myHammer = new Hammer($body);
+myHammer.on('swipeleft', function() {
+   $floatingElement.classList.remove('active')   
+});
+myHammer.on('swiperight', function() {
+   $floatingElement.classList.add('active')   
+});
 
 
 
