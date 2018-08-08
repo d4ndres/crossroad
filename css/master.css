@@ -402,6 +402,7 @@ ul{
 }
 .crossroad-img-footer{
 	max-width: 400px;
+	width: 100vw;
 	margin: 0 auto;
 	padding-top: 2vh;
 }
@@ -469,8 +470,17 @@ ul{
 	
 
 }
-@media screen and ( max-width: 500px ){
+@media screen and ( max-width: 767px ){
 
+	.table{
+		overflow: auto;
+		font-size: 14px;
+	}
+}
+@media screen and ( max-width: 500px ){
+	.mod3{
+		font-size: 14px;
+	}
 
 	.program:hover .program-title{
 		padding: 5%;
@@ -484,6 +494,9 @@ ul{
 	.program-title{
 		padding-top: 0;
 		padding: 20% 0;
+	}
+	.card{
+		padding-bottom: 20px;
 	}
 	.footer{
 		font-size: 16px;
@@ -514,18 +527,27 @@ ul{
 /*_______________ prince-html__________________ */
 .title-price{
 	color: #fff;
-	font-size: 2em;
-	padding: 10px 0 20px 0;
+	background: #000;
+	font-size: 3em;
+	min-width: 100vw;
 	text-align: center;
 }
 
-.prices-tables{
+.mod-table{
+	background: linear-gradient(to right, #010101, #282828, #010101);
 	flex:  1;
-	background: #F4F4F4;
-
+	min-height: 80vh;
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.table{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: inherit;
+
 }
 
 table{
@@ -540,6 +562,7 @@ td{
 	padding: 20px;
 }
 table, th, td{
-	border:  solid 1px;
+	border: #fff solid 1px;
+	color: #fff;
 	border-collapse: collapse;
 }
